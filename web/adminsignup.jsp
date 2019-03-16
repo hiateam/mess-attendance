@@ -15,7 +15,7 @@
     <div class="login-box" style="padding: 3rem; color:yellow;">
     
         <h1>Sign Up Here</h1>
-            <form>
+            <form action="adminregistration" method="get">
             <p>Username</p>
             <input type="text" name="username" placeholder="Enter Username">
             <p>email</p>
