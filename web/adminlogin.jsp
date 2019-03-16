@@ -12,8 +12,8 @@
     <link rel="stylesheet" type="text/css" href="styleadminlogin.css">
   </head>
     <body>
-    <div class="login-box">
-    <img src="avatar.png" class="avatar">
+    <div class="login-box" style="color: yellow">
+   
         <h1>Login Here</h1>
             <form>
             <p>Username</p>
@@ -26,7 +26,7 @@
            
    <ul>
            <li> <a href="#">Forget Password</a></li>
-           <li> <a href="sign.html">Sign in</a></li>
+           <li> <a href="adminsignup.jsp">Sign in</a></li>
     </ul>              
             </form>
         

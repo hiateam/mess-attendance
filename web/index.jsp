@@ -40,7 +40,7 @@
       </li>
 
        <li class="nav-item">
-        <a class="nav-link" href="contact.html">CONTACT</a>
+        <a class="nav-link" href="contact.jsp">CONTACT</a>
       </li>
 </ul>
 
