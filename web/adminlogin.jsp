@@ -17,11 +17,11 @@
         <h1>Login Here</h1>
             <form action="checkadmin" method="get">
             <p>Username</p>
-            <input type="text" name="username" placeholder="Enter Username">
+            <input type="number" name="contactnumber" placeholder="Enter Contact Number">
             <p>Password</p>
             <input type="password" name="password" placeholder="Enter Password">
             <div class="button">
-          <a href="ADMIN.HTML" class="btn">LOG IN</a>
+          <input type="submit" name="submit" value="log in">
         </div>
            
    <ul>

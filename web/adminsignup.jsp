@@ -21,22 +21,22 @@
             <p>Username</p>
             <input type="text" name="username" placeholder="Enter Username" required>
             <p>email</p>
-            <input type="email" name="email" placeholder="Enter your email"required>
+            <input type="email" name="email" placeholder="Enter your email" required>
             <p>Contact Number</p>
             <input type="number" name="contactnumber" placeholder="Enter your contact number" required>
             <p>Address</p>
-            <input type ="text" name="address" placeholder="Enter address of mess"required>
+            <input type ="text" name="address" placeholder="Enter address of mess" required>
             <p>Password</p>
             <input type="password" name="password" placeholder="Enter Password" required>
 
             <p>confirm Password</p>
-            <input type="password" name="confirmpassword" placeholder="confirm Password"required>
+            <input type="password" name="confirmpassword" placeholder="confirm Password" required>
 
-            <input type="submit" name="submit" value="sign up" required>
+            <input type="submit" name="submit" value="sign up">
             
-            <h>Already have an account</h> 
+            <h1>Already have an account</h1> 
            
-                 <li><a href="adminlogin.jsp">log in</a></li>
+                 <h1><a href="adminlogin.jsp">log in</a></h1>
             
             
             
