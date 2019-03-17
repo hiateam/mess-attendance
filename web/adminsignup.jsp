@@ -21,9 +21,9 @@
             <p>Username</p>
             <input type="text" name="username" placeholder="Enter Username" required>
             <p>email</p>
-            <input type ="text" name="email" placeholder="Enter your email"required>
+            <input type="email" name="email" placeholder="Enter your email"required>
             <p>Contact Number</p>
-            <input type ="text" name="contactnumber" placeholder="Enter your contact number" required>
+            <input type="number" name="contactnumber" placeholder="Enter your contact number" required>
             <p>Address</p>
             <input type ="text" name="address" placeholder="Enter address of mess"required>
             <p>Password</p>
