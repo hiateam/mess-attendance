@@ -15,7 +15,7 @@
     <div class="login-box" style="color: yellow">
    
         <h1>Login Here</h1>
-            <form>
+            <form action="checkadmin" method="get">
             <p>Username</p>
             <input type="text" name="username" placeholder="Enter Username">
             <p>Password</p>

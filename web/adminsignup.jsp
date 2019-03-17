@@ -16,17 +16,23 @@
     
         <h1>Sign Up Here</h1>
             <form action="adminregistration" method="get">
+            <p>Mess Name</p>
+            <input type="text" name="messname" placeholder="Enter Mess Name" required>
             <p>Username</p>
-            <input type="text" name="username" placeholder="Enter Username">
+            <input type="text" name="username" placeholder="Enter Username" required>
             <p>email</p>
-            <input type ="text" name="email" placeholder="Enter your email">
+            <input type ="text" name="email" placeholder="Enter your email"required>
+            <p>Contact Number</p>
+            <input type ="text" name="contactnumber" placeholder="Enter your contact number" required>
+            <p>Address</p>
+            <input type ="text" name="address" placeholder="Enter address of mess"required>
             <p>Password</p>
-            <input type="password" name="password" placeholder="Enter Password">
+            <input type="password" name="password" placeholder="Enter Password" required>
 
             <p>confirm Password</p>
-            <input type="password" name="confirm password" placeholder="confirm Password">
+            <input type="password" name="confirmpassword" placeholder="confirm Password"required>
 
-            <input type="submit" name="submit" value="sign up">
+            <input type="submit" name="submit" value="sign up" required>
             
             <h>Already have an account</h> 
            
