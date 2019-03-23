@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,7 @@ import java.sql.Timestamp;
  * @author rish
  */
 public class adminregistration extends HttpServlet {
-Connection con; PreparedStatement ps;
+Connection con; PreparedStatement ps;PreparedStatement ps1;
  @Override
     public void init(){
         try{
@@ -51,8 +52,14 @@ Connection con; PreparedStatement ps;
         String contactnumber=request.getParameter("contactnumber");
         String address=request.getParameter("address");
         String password=request.getParameter("password");
-        //process
+        
         try{
+        String sr="select * from admininfo where contactnumber=?";
+        ps1=con.prepareStatement(sr);
+            ps1.setString(1,contactnumber);
+             ResultSet rs=ps1.executeQuery();
+            boolean b=rs.next();
+           if(!b){ 
         ps.setString(1,messname);
         ps.setString(2,username);
         ps.setString(3,email);
@@ -61,12 +68,18 @@ Connection con; PreparedStatement ps;
         ps.setTimestamp(6,dateofregistration);
         ps.setString(7,password);
         ps.executeUpdate();
-    }catch(Exception e){
+        response.sendRedirect("registrationsuccessful.jsp");    
+           }else{
+           response.sendRedirect("useralreadyexist.jsp");
+           }
+        }catch(Exception e){
            out.print(e);
         }
-        response.sendRedirect("registrationsuccessful.jsp");
+        
+           
+    
     }
-   
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
