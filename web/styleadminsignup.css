@@ -7,8 +7,7 @@ body{
     font-family: sans-serif;
 }
 .login-box{
-    width: 320px;
-    height: 420px;
+    
     background: rgba(0, 0, 0, 0.5);
     color: #fff;
     top: 50%;
@@ -40,8 +39,9 @@ h1{
 .login-box input{
     width: 100%;
     margin-bottom: 20px;
+    
 }
-.login-box input[type="text"], input[type="password"]
+.login-box input[type="text"], input[type="password"] 
 {
     border: none;
     border-bottom: 1px solid #fff;

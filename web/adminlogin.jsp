@@ -12,16 +12,46 @@
     <link rel="stylesheet" type="text/css" href="styleadminlogin.css">
   </head>
     <body>
+        
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="  height: 3rem;">
+  <a class="navbar-brand" href="#">MESS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+
+       <li class="nav-item">
+        <a class="nav-link" href="adminlogin.jsp">ADMIN</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">ABOUT</a>
+      </li>
+
+       <li class="nav-item">
+        <a class="nav-link" href="contact.jsp">CONTACT</a>
+      </li>
+</ul>
+  </div>
+         </nav>
+        
+        
     <div class="login-box" style="color: yellow">
    
         <h1>Login Here</h1>
-            <form action="checkadmin" method="get">
+            <form>
             <p>Username</p>
-            <input type="number" name="contactnumber" placeholder="Enter Contact Number">
+            <input type="number" name="username" placeholder="Enter contact">
             <p>Password</p>
             <input type="password" name="password" placeholder="Enter Password">
             <div class="button">
-          <input type="submit" name="submit" value="log in">
+          <a href="#" class="btn">LOG IN</a>
         </div>
            
    <ul>

@@ -34,6 +34,10 @@
        <li class="nav-item">
         <a class="nav-link" href="adminlogin.jsp">ADMIN</a>
       </li>
+      
+        <li class="nav-item">
+        <a class="nav-link" href="#">STUDENT</a>
+      </li>
 
       <li class="nav-item">
         <a class="nav-link" href="#">ABOUT</a>
