@@ -63,19 +63,22 @@
 
  <div class="login-box" style="color:yellow;">
     
-        <h1>Add Employ</h1>
-            <form>
+        <h1>Add Customer</h1>
+        <form action="addemployee" method="get">
             <p>name</p>
-            <input type="text" name="name" placeholder="Enter name">
-            <p>email</p>
-            <input type ="text" name="email" placeholder="Enter your email">
+            <input type="text" name="employeename" placeholder="Enter name" required>
+            <p>contactnumber</p>
+            <input type ="number" name="contactnumber" placeholder="Enter your contactnumber" required>
             <p>Address</p>
-            <input type="text" name="Address" placeholder="Enter your Address"
+            <input type="text" name="address" placeholder="Enter your Address" required>
           
-           <p>mobile number</p> 
-           <input type="text" name="number" placeholder="9893******">
+           <p>email</p> 
+           <input type="email" name="email" placeholder="enter your email">
 
-           <input type="submit" name="submit" value="sign up">
+           <p>enter password</p> 
+           <input type="password" name="password" placeholder="enter password" required>
+
+           <input type="submit" name="submit" value="save customer">
            
             </form>
           </div>

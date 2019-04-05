@@ -15,7 +15,7 @@ import jdbc.datajdbc;
  *
  * @author rish
  */
-public class checkadmin extends HttpServlet {
+public class checkadminforupdate extends HttpServlet {
 
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -33,9 +33,8 @@ public class checkadmin extends HttpServlet {
             ResultSet rs=ps.executeQuery();
             boolean b=rs.next();
             if(b){
-                HttpSession session=request.getSession();
-                session.setAttribute("admin",contactnumber);
-                response.sendRedirect("adminpage.jsp");
+              
+                response.sendRedirect("updateinfo.jsp");
             }else{
                 response.sendRedirect("adminwronginfo.jsp");
             }

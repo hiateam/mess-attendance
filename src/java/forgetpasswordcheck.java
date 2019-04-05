@@ -1,3 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -7,48 +13,58 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import jdbc.datajdbc;
 
 
-/**
- *
- * @author rish
- */
-public class checkadmin extends HttpServlet {
+public class forgetpasswordcheck extends HttpServlet {
 
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-         {  String contactnumber=request.getParameter("contactnumber");
-            String password=request.getParameter("password");
-            String qr="select * from admininfo where contactnumber=? and password=?";
+        try (PrintWriter out = response.getWriter()) {
+            String messname=request.getParameter("messname");
+            String email=request.getParameter("email");
+            String contactnumber=request.getParameter("contactnumber");
+            String qr="select * from admininfo where messname=? and email=? and contactnumber=?";
             Connection con=jdbc.datajdbc.connect();
             try{
             PreparedStatement ps=con.prepareStatement(qr);
-            ps.setString(1,contactnumber);
-            ps.setString(2,password);
+            ps.setString(1,messname);
+            ps.setString(2,email);
+            ps.setString(3,contactnumber);
             ResultSet rs=ps.executeQuery();
             boolean b=rs.next();
             if(b){
-                HttpSession session=request.getSession();
-                session.setAttribute("admin",contactnumber);
-                response.sendRedirect("adminpage.jsp");
+           String pass = rs.getString(7);
+            
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet forgetpasswordcheck</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Your password is "+pass+"</h1>");
+            out.println("</body>");
+            out.println("</html>");
             }else{
                 response.sendRedirect("adminwronginfo.jsp");
             }
             con.close();
             }catch(Exception e){out.println(e);}
+            }
             
-            
-            
-        }  
-        
     }
 
-    
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

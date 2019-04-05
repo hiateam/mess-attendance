@@ -15,32 +15,35 @@ import jdbc.datajdbc;
  *
  * @author rish
  */
-public class checkadmin extends HttpServlet {
+public class checkcustomer extends HttpServlet {
 
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-         {  String contactnumber=request.getParameter("contactnumber");
+         {  String contactnumberadmin=request.getParameter("contactnumberadmin");
+            String contactnumbercustomer=request.getParameter("contactnumbercustomer");
             String password=request.getParameter("password");
-            String qr="select * from admininfo where contactnumber=? and password=?";
+            String qr="select * from "+contactnumberadmin+"customer where contactnumber=? and password=?";
             Connection con=jdbc.datajdbc.connect();
             try{
             PreparedStatement ps=con.prepareStatement(qr);
-            ps.setString(1,contactnumber);
+            ps.setString(1,contactnumbercustomer);
             ps.setString(2,password);
             ResultSet rs=ps.executeQuery();
             boolean b=rs.next();
             if(b){
+                String username=rs.getString(1);
                 HttpSession session=request.getSession();
-                session.setAttribute("admin",contactnumber);
-                response.sendRedirect("adminpage.jsp");
+                session.setAttribute("customername",username);
+                session.setAttribute("customernumber",contactnumbercustomer);
+                response.sendRedirect("customerpage.jsp");
             }else{
                 response.sendRedirect("adminwronginfo.jsp");
             }
             con.close();
-            }catch(Exception e){out.println(e);}
+            }catch(Exception e){out.println("contact number of mess is wrong");}
             
             
             

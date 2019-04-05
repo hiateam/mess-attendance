@@ -29,11 +29,11 @@
 
 
        <li class="nav-item">
-        <a class="nav-link" href="addcustomer.html">Add customer</a>
+        <a class="nav-link" href="addcustomer.jsp">Add customer</a>
       </li>
 
        <li class="nav-item">
-        <a class="nav-link" href="addemploy.html">Add Employ</a>
+        <a class="nav-link" href="addemploy.jsp">Add Employ</a>
       </li>
 
       
@@ -67,18 +67,23 @@
  <div class="login-box" style="color:yellow;">
     
         <h1>Add Customer</h1>
-            <form>
+        <form action="addcustomer" method="get">
             <p>name</p>
-            <input type="text" name="name" placeholder="Enter name">
+            <input type="text" name="customername" placeholder="Enter name" required>
             <p>email</p>
-            <input type ="text" name="email" placeholder="Enter your email">
+            <input type ="text" name="email" placeholder="Enter your email" required>
             <p>Address</p>
-            <input type="text" name="Address" placeholder="Enter your Address"
+            <input type="text" name="address" placeholder="Enter your Address" required>
           
            <p>mobile number</p> 
-           <input type="text" name="number" placeholder="9893******">
+           <input type="number" name="contactnumber" placeholder="enter contact number" required>
 
-           <input type="submit" name="submit" value="sign up">
+           <p>home town</p> 
+           <input type="text" name="hometown" placeholder="enter your hometown" required>
+           <p>enter password</p> 
+           <input type="password" name="password" placeholder="enter password" required>
+
+           <input type="submit" name="submit" value="save customer">
            
             </form>
           </div>

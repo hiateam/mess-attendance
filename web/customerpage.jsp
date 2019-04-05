@@ -1,5 +1,19 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%
+    
+    String cid=(String)session.getAttribute("customernumber");
+    if(cid==null){
+    response.sendRedirect("customerlogin.jsp");
+    }
+   response.setHeader("Cache-Control","no-cache");
+   response.setHeader("Cache-Control","no-store");
+   response.setHeader("Pragma","no-cache");
+   response.setDateHeader("Expires",0);
+   %>
+   <%
+    
+    String customername=(String)session.getAttribute("customername");
+    %>
 <!doctype html>
 <html lang="en">
   <head>
@@ -32,23 +46,16 @@
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
 
-      
        <li class="nav-item">
-        <a class="nav-link" href="adminlogin.jsp">ADMIN</a>
+        <a class="nav-link" href="checkcustomerforupdate.jsp">update info</a>
         
        </li>
       
         <li class="nav-item">
-        <a class="nav-link" href="customerlogin.jsp">customer</a>
+        <a class="nav-link" href="endsession">logout</a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="#">ABOUT</a>
-      </li>
-
-       <li class="nav-item">
-        <a class="nav-link" href="contact.jsp">CONTACT</a>
-      </li>
+    
 </ul>
 
 
@@ -61,7 +68,7 @@
 
 </nav>
     </header>
-
+              <h3>Welcome <%=customername%></h3>
      <div class="jumbotron">
     <div class="container" id="#Learn more »">
       <h1 class="display-3">AbOut mEsS</h1>

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -16,21 +17,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import jdbc.datajdbc;
 import java.sql.Timestamp;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author rish
  */
-public class adminregistration extends HttpServlet {
+public class addemployee extends HttpServlet {
 Connection con; PreparedStatement ps;PreparedStatement ps1;PreparedStatement ps2;
+           
+           
  @Override
     public void init(){
-        try{
-        String qr="insert into admininfo values(?,?,?,?,?,?,?)";
-        con=datajdbc.connect();            
-        ps=con.prepareStatement(qr);
-        }catch(Exception e){
-        }
+       
     }
     @Override
     public void destroy(){
@@ -45,44 +44,47 @@ Connection con; PreparedStatement ps;PreparedStatement ps1;PreparedStatement ps2
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter(); 
-          java.sql.Timestamp dateofregistration = new java.sql.Timestamp(new java.util.Date().getTime());
-        String messname=request.getParameter("messname");
-        String username=request.getParameter("username");
-        String email=request.getParameter("email");
+        PrintWriter out = response.getWriter();
+        
+         HttpSession session=request.getSession();
+          String ac=(String)session.getAttribute("admin");
+           try{
+           
+    
+        String qr="insert into "+ac+"employee values(?,?,?,?,?,?)";
+        con=datajdbc.connect();            
+        ps=con.prepareStatement(qr);
+        }catch(Exception e){
+        }
+          
+        String employeename=request.getParameter("employeename");
         String contactnumber=request.getParameter("contactnumber");
         String address=request.getParameter("address");
+        String email=request.getParameter("email");
+        java.sql.Timestamp dateofregistration = new java.sql.Timestamp(new java.util.Date().getTime());
         String password=request.getParameter("password");
+       
         try{
-        Statement cust=con.createStatement();
-        String qry="create table "+contactnumber+"customer(customername varchar(30),contactnumber varchar(12),address varchar(100),email varchar(35),hometown varchar(20),dateofregistration TIMESTAMP DEFAULT CURRENT_TIMESTAMP,password varchar(25))";
-        cust.executeUpdate(qry);
-        Statement emp=con.createStatement();
-        String qry1="create table "+contactnumber+"employee(employeename varchar(30),contactnumber varchar(12),address varchar(100),email varchar(35),dateofregistration TIMESTAMP DEFAULT CURRENT_TIMESTAMP,password varchar(25))";
-        emp.executeUpdate(qry1);
-        }catch(Exception e){out.print(e);}
-        try{
-        String sr="select * from admininfo where contactnumber=?";
+        String sr="select * from "+ac+"employee where contactnumber=?";
         ps1=con.prepareStatement(sr);
             ps1.setString(1,contactnumber);
             ResultSet rs=ps1.executeQuery();
             boolean b=rs.next();
-           String em="select * from admininfo where email=?";
+           String em="select * from "+ac+"employee where email=?";
         ps2=con.prepareStatement(em);
             ps2.setString(1,email);
                ResultSet rm=ps2.executeQuery();
             boolean e=rm.next();
             if(!e){
                if(!b){ 
-        ps.setString(1,messname);
-        ps.setString(2,username);
-        ps.setString(3,email);
-        ps.setString(4,contactnumber);
-        ps.setString(5,address);
-        ps.setTimestamp(6,dateofregistration);
-        ps.setString(7,password);
+        ps.setString(1,employeename);
+        ps.setString(2,contactnumber);
+        ps.setString(3,address);
+        ps.setString(4,email);
+        ps.setTimestamp(5,dateofregistration);
+        ps.setString(6,password);
         ps.executeUpdate();
-        response.sendRedirect("registrationsuccessful.jsp");    
+        response.sendRedirect("employeesavesuccessfully.jsp");    
                      }
            else{
            response.sendRedirect("useralreadyexist.jsp");

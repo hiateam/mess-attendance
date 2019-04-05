@@ -15,18 +15,18 @@
     <div class="login-box" style="color: yellow">
    
         <h1>Login Here</h1>
-            <form action="checkadmin" method="get">
+            <form action="checkadminforupdate" method="get">
             <p>contact number</p>
             <input type="number" name="contactnumber" placeholder="Enter Contact Number" required>
             <p>Password</p>
             <input type="password" name="password" placeholder="Enter Password" required>
             <div class="button">
-          <input type="submit" name="submit" value="log in">
+          <input type="submit" name="submit" value="continue">
         </div>
            
    <ul>
            <li> <a href="forgetpassword.jsp">Forget Password</a></li>
-           <li> <a href="adminsignup.jsp">Sign in</a></li>
+           
     </ul>              
             </form>
         

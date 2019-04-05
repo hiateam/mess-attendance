@@ -15,7 +15,7 @@
 
    
 
-     <!doctype html>
+     
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -27,7 +27,7 @@
 
     
   
-	<title>sourabh creation</title>
+	<title>hiateam</title>
 	<link rel="stylesheet" type="text/css" href="admin.css">
 </head>
 <body>
@@ -46,25 +46,27 @@
 
 
        <li class="nav-item">
-        <a class="nav-link" href="addcustomer.html">Add customer</a>
+        <a class="nav-link" href="addcustomer.jsp">Add customer</a>
       </li>
 
  <li class="nav-item">
-        <a class="nav-link" href="addemploy.html">Add Employ</a>
+        <a class="nav-link" href="addemploy.jsp">Add Employ</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="studentattendance.html"> Student Attendance</a>
+        <a class="nav-link" href="studentattendance.jsp"> Student Attendance</a>
       </li>
 
        <li class="nav-item">
-        <a class="nav-link" href="employattendance.html"> Employ Attendance</a>
+        <a class="nav-link" href="employattendance.jsp"> Employ Attendance</a>
       </li>
 
        <li class="nav-item">
         <a class="nav-link" href="#">Check attendance</a>
       </li>
-
+ <li class="nav-item">
+        <a class="nav-link" href="checkadminforupdate.jsp">Update Information</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="endsession">Logout</a>
       </li>
