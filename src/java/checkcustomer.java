@@ -36,6 +36,7 @@ public class checkcustomer extends HttpServlet {
             if(b){
                 String username=rs.getString(1);
                 HttpSession session=request.getSession();
+                session.setAttribute("contactnumberad",contactnumberadmin);
                 session.setAttribute("customername",username);
                 session.setAttribute("customernumber",contactnumbercustomer);
                 response.sendRedirect("customerpage.jsp");
